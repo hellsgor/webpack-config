@@ -56,11 +56,9 @@ module.exports = {
   plugins: [
     new PugPlugin({
       pretty: true,
-      modules: [
-        PugPlugin.extractCss({
-          filename: 'assets/css/[name].[contenthash:8].css'
-        })
-      ]
+      extractCss: {
+        filename: 'assets/css/[name].[contenthash:8].css',
+      },
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -76,9 +74,9 @@ module.exports = {
       {
         test: /\.pug$/,
         loader: PugPlugin.loader,
-        options: {
-          method: 'render',
-        }
+        // options: {
+        //   method: 'render',
+        // }
       },
       {
         test: /\.(png|jpg|jpeg|svg|ico)/,

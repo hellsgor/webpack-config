@@ -11,9 +11,9 @@ module.exports = {
     index: './src/pages/main/main.pug',
   },
   output: {
-    filename: 'assets/js/[name].[contenthash:8].js',
+    filename: 'assets/js/[name].js',
     path: path.join(__dirname, './dist'),
-    publicPath: '/'
+    publicPath: './'
   },
   stats: {
     children: true,
@@ -58,7 +58,7 @@ module.exports = {
     new PugPlugin({
       pretty: true,
       extractCss: {
-        filename: 'assets/css/[name].[contenthash:8].css',
+        filename: 'assets/css/[name].css',
       },
     }),
     new CleanWebpackPlugin(),
@@ -88,14 +88,14 @@ module.exports = {
         test: /\.(png|jpg|jpeg|svg|ico)/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/img/[name].[hash:8][ext]',
+          filename: 'assets/img/[name][ext]',
         },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/fonts/[name].[hash:8][ext]',
+          filename: 'assets/fonts/[name][ext]',
         },
       },
       {
@@ -106,7 +106,7 @@ module.exports = {
         test: /\.mp4$/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/img/[name].[hash:8][ext]',
+          filename: 'assets/img/[name][ext]',
         }
       }
     ],

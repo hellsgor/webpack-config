@@ -5,9 +5,12 @@ block variables
 
 block styles
   link(href=require('./main.scss') rel='stylesheet')
-  //- link(rel="icon" href="assets/img/favicon/favicon.ico" type="image/ico")
 block content
   main.page__main
-    h1 Hi
+  .hello-block
+    .hello-block__image
+      img(src=require('Img/webpack_logo.png') alt='Webpack Logo')
+    .hello-block__title
+      h1 Hi, Webpack!
 block scripts
   script(src=require('./main.js') defer)

@@ -83,9 +83,6 @@ module.exports = {
       {
         test: /\.pug$/,
         loader: PugPlugin.loader,
-        // options: {
-        //   method: 'render',
-        // }
       },
       {
         test: /\.(png|jpg|jpeg|svg|ico)/,

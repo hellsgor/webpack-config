@@ -1,0 +1,12 @@
+block variables
+
+doctype html
+html(lang='ru' class='page')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title #{title}
+    block styles
+  body(class='page__body')
+    block content
+    block scripts

@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PugPlugin = require('pug-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -61,6 +62,14 @@ module.exports = {
       },
     }),
     new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/assets/img/favicon/favicon.ico'),
+          to: path.resolve(__dirname, 'dist/assets/img/favicon/')
+        },
+      ]
+    }),
     new webpack.HotModuleReplacementPlugin(),
 
   ],

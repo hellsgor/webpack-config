@@ -44,4 +44,4 @@
 * Libs - './src/libs/' (на момент публикации не используется);
 * NodeModules - './node_modules/';
 * Partials - './src/pages/_partials/';
-* Utils - './src/utils/'.
+* Utils - './src/utils/';

@@ -13,7 +13,6 @@ module.exports = {
   output: {
     filename: 'assets/js/[name].js',
     path: path.join(__dirname, './dist'),
-    publicPath: './'
   },
   stats: {
     children: true,

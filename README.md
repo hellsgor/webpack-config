@@ -1,4 +1,4 @@
-# myWebpackBuild v.0.1.0
+# myWebpackBuild
 
 ## Клонирование репозитория
 
@@ -11,10 +11,10 @@
 
 ## Работа с npm
 
-* установка пакетов - npm i;
-* запуск dev-сервера - npm start;
-* сборка билда dev - npm run dev;
-* сборка билда prod - npm run build.
+* установка пакетов - `npm i`;
+* запуск dev-сервера - `npm start`;
+* сборка билда dev - `npm run dev`;
+* сборка билда prod - `npm run build`.
 
 ## Файловая структура
 
@@ -50,3 +50,35 @@
 ## Советы и правила
 
 * файлы null следует удалить если в папке-родителе появятся файлы проекта. Файлы "null" требуются исключительно для сохранения файловой структуры в git;
+* каждой новой странице после копирования кода pug и scss-файлов:
+  * в pug изменить:
+    * значение переменной `withHeaderFooter` если это необходимо (хедер, футер нужны /не нужны);
+    * значение переменно `pageClassName` (назначить правильный класс тегу <main> для управления страницей);
+  * в scss, изменить значение переменной `$withHeaderFooter` если импорт файлов стилей хедера и футера не нужен;
+
+## История версий
+
+### v.0.1.0
+
+* Базовая настройка webpack
+
+### v.0.2.0
+* в pug-файл страницы добавлена переменная `- let withHeaderFooter = true;` обозначающая необходимость добавления на страницу хедера и футера. В main-layout.pug добавлены условия отвечающее за добавление хедера и футера на страницу
+
+      if (withHeaderFooter)
+        include Components/common/header/header.pug
+  и
+
+      if (withHeaderFooter)
+        include Components/common/footer/footer.pug
+
+
+* в scss-файл страницы добавлена переменная `$withHeaderFooter: true !default;` обозначающая необходимость импорта на страницу хедера и футера. В main-layout.scss добавлено условие отвечающее за импорт стилей хедера и футера на страницу
+
+      if($withHeaderFooter) {
+          @import 'Components/common/header/header.scss';
+          @import 'Components/common/footer/footer.scss';
+      }
+
+* footer уже прижат к "полу" в `main-layout.scss`;
+* в pug-файл страницы добавлена переменная `- let pageClassName = 'main-page';`. Её значение подставляется как класс `<main>` для удобства управления страницей;

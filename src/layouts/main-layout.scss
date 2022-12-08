@@ -1,6 +1,10 @@
 @import 'Styles/styles.scss';
-@import 'Components/common/header/header.scss';
-@import 'Components/common/footer/footer.scss';
+
+if($withHeaderFooter) {
+  @import 'Components/common/header/header.scss';
+  @import 'Components/common/footer/footer.scss';
+}
+
 
 html,
 body {

@@ -1,16 +1,18 @@
 extends Layouts/main-layout.pug
 
 block variables
-  - var title = 'Main page'
+  - let title = 'Main page';
+  - let withHeaderFooter = true;
+  // TODO: добавить переменную с именем страницы, которое добавлять в <main> как класс
 
 block styles
   link(href=require('./main.scss') rel='stylesheet')
 block content
   main.page__main
-  .hello-block
-    .hello-block__image
-      img(src=require('Img/webpack_logo.png') alt='Webpack Logo')
-    .hello-block__title
-      h1 Hi, Webpack!
+    .hello-block
+      .hello-block__image
+        img(src=require('Img/webpack_logo.png') alt='Webpack Logo')
+      .hello-block__title
+        h1 Hi, Webpack!
 block scripts
   script(src=require('./main.js') defer)

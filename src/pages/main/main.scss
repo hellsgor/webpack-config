@@ -2,9 +2,6 @@ $withHeaderFooter: true;
 
 @import 'Layouts/main-layout.scss';
 
-body {
-  color: white;
-}
 .hello-block {
   &__image {
     display: flex;

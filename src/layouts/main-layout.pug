@@ -9,5 +9,13 @@ html(lang='ru' class='page')
     title #{title}
     block styles
   body(class='page__body')
+
+    if (withHeaderFooter)
+      include Components/common/header/header.pug
+
     block content
+
+    if (withHeaderFooter)
+      include Components/common/footer/footer.pug
+
     block scripts

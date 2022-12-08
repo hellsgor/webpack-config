@@ -72,13 +72,5 @@
       if (withHeaderFooter)
         include Components/common/footer/footer.pug
 
-
-* в scss-файл страницы добавлена переменная `$withHeaderFooter: true !default;` обозначающая необходимость импорта на страницу хедера и футера. В main-layout.scss добавлено условие отвечающее за импорт стилей хедера и футера на страницу
-
-      if($withHeaderFooter) {
-          @import 'Components/common/header/header.scss';
-          @import 'Components/common/footer/footer.scss';
-      }
-
 * footer уже прижат к "полу" в `main-layout.scss`;
 * в pug-файл страницы добавлена переменная `- let pageClassName = 'main-page';`. Её значение подставляется как класс `<main>` для удобства управления страницей;

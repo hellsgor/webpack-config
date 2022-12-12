@@ -101,7 +101,7 @@ module.exports = {
       },
       {
         test: /\.(scss|css)$/,
-        use: ['css-loader', 'sass-loader'],
+        use: ['css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
         test: /\.mp4$/,

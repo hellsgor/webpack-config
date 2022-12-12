@@ -13,7 +13,7 @@
     "js",
     "javascript"
   ],
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": ["ie >= 8, last 4 version, > 1%, not dead"],
   "author": "igor-st <hellsgor@gmail.com>",
   "license": "ISC",
   "devDependencies": {
@@ -41,6 +41,7 @@
     "webpack-livereload-plugin": "^3.0.2"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1"
+    "@babel/polyfill": "^7.12.1",
+    "autoprefixer": "^10.4.13"
   }
 }

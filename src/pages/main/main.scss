@@ -1,12 +1,19 @@
-$withHeaderFooter: true;
-
 @import 'Layouts/main-layout.scss';
 
 .hello-block {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  justify-content: center;
   &__image {
     display: flex;
     justify-content: center;
-    margin: 80px 0 40px;
+    margin: 80px 0 0;
+    animation-name: test;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 3s;
+    animation-iteration-count: 4;
     img {
       width: 200px;
       height: 200px;
@@ -14,5 +21,33 @@ $withHeaderFooter: true;
   }
   &__title {
     text-align: center;
+    display: inline-block;
+    height: 100%;
+  }
+
+  &__input {
+    margin: 0 auto;
+    width: 300px;
+    &::placeholder {
+      color: red;
+    }
+  }
+}
+
+@keyframes test {
+  from {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -1,19 +1,19 @@
-const path = require("path");
+const path = require('path');
 // const webpack = require('webpack');
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const PugPlugin = require("pug-plugin");
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PugPlugin = require('pug-plugin');
 
-const isDev = process.env.NODE_ENV === "development";
+const isDev = process.env.NODE_ENV === 'development';
 module.exports = {
-  mode: "development",
+  mode: 'development',
   entry: {
-    index: "./src/pages/main/main.pug",
-    uiKit: "./src/pages/ui-kit/ui-kit.pug",
+    index: './src/pages/main/main.pug',
+    uiKit: './src/pages/ui-kit/ui-kit.pug',
   },
   output: {
-    filename: "assets/js/[name].js",
-    path: path.join(__dirname, "./build"),
+    filename: 'assets/js/[name].js',
+    path: path.join(__dirname, './build'),
   },
   stats: {
     children: true,
@@ -23,7 +23,7 @@ module.exports = {
       cacheGroups: {
         scripts: {
           test: /\.(js)$/,
-          chunks: "all",
+          chunks: 'all',
         },
       },
     },
@@ -31,46 +31,50 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     static: {
-      directory: path.join(__dirname, "./build"),
+      directory: path.join(__dirname, './build'),
     },
     open: true,
     compress: true,
-    hot: "only",
+    hot: 'only',
     port: 3000,
-    watchFiles: ["./src/pages/**/*.*", "./src/components/**/*.*", "./src/assets/common/*.*"]
+    watchFiles: [
+      './src/pages/**/*.*',
+      './src/components/**/*.*',
+      './src/assets/common/*.*',
+    ],
   },
   resolve: {
     alias: {
-      Img: path.join(__dirname, "./src/assets/img/"),
-      Fonts: path.join(__dirname, "./src/assets/fonts/"),
-      Components: path.join(__dirname, "./src/components/"),
-      Layouts: path.join(__dirname, "./src/layouts/"),
-      UIKit: path.join(__dirname, "./src/UIKit"),
-      Styles: path.join(__dirname, "./src/assets/styles/"),
-      Libs: path.join(__dirname, "./src/libs/"),
-      NodeModules: path.join(__dirname, "./node_modules/"),
-      Partials: path.join(__dirname, "./src/pages/_partials/"),
-      Utils: path.join(__dirname, "./src/utils/"),
-    }
+      Img: path.join(__dirname, './src/assets/img/'),
+      Fonts: path.join(__dirname, './src/assets/fonts/'),
+      Components: path.join(__dirname, './src/components/'),
+      Layouts: path.join(__dirname, './src/layouts/'),
+      UIKit: path.join(__dirname, './src/UIKit'),
+      Styles: path.join(__dirname, './src/assets/styles/'),
+      Libs: path.join(__dirname, './src/libs/'),
+      NodeModules: path.join(__dirname, './node_modules/'),
+      Partials: path.join(__dirname, './src/pages/_partials/'),
+      Utils: path.join(__dirname, './src/utils/'),
+    },
   },
   plugins: [
     new PugPlugin({
       pretty: true,
       extractCss: {
-        filename: "assets/css/[name].css",
+        filename: 'assets/css/[name].css',
       },
     }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/assets/img/favicon/favicon.ico"),
-          to: path.resolve(__dirname, "build/assets/img/favicon/")
+          from: path.resolve(__dirname, 'src/assets/img/favicon/favicon.ico'),
+          to: path.resolve(__dirname, 'build/assets/img/favicon/'),
         },
-      ]
+      ],
     }),
   ],
-  devtool: isDev ? "inline-source-map" : false,
+  devtool: isDev ? 'inline-source-map' : false,
   module: {
     rules: [
       {
@@ -79,42 +83,40 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|jpeg|svg|ico)/,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "assets/img/[name][ext]",
+          filename: 'assets/img/[name][ext]',
         },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "assets/fonts/[name][ext]",
+          filename: 'assets/fonts/[name][ext]',
         },
       },
       {
         test: /\.(scss|css)$/,
-        use: ["css-loader", "sass-loader"],
+        use: ['css-loader', 'sass-loader'],
       },
       {
         test: /\.mp4$/,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "assets/img/[name][ext]",
-        }
+          filename: 'assets/img/[name][ext]',
+        },
       },
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
-            plugins: [
-              "@babel/plugin-proposal-class-properties"
-            ]
-          }
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-proposal-class-properties'],
+          },
         },
       },
     ],
-  }
+  },
 };

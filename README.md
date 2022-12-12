@@ -85,4 +85,4 @@
 - добавлен Prettier;
 - добавлен Autoprefixer;
 - доработана структура сборки и билда;
-- доработан webpack.config.js
+- доработан webpack.config.js.

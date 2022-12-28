@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PugPlugin = require('pug-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
   mode: 'development',
   entry: {
@@ -40,11 +41,12 @@ module.exports = {
       './src/pages/**/*.*',
       './src/components/**/*.*',
       './src/assets/common/*.*',
+      './src/UIKit/**/*.*',
     ],
   },
   resolve: {
     alias: {
-      Img: path.join(__dirname, './src/assets/image/'),
+      Img: path.join(__dirname, './src/assets/images/'),
       Icons: path.join(__dirname, './src/assets/icons/'),
       Fonts: path.join(__dirname, './src/assets/fonts/'),
       Components: path.join(__dirname, './src/components/'),
@@ -55,6 +57,8 @@ module.exports = {
       NodeModules: path.join(__dirname, './node_modules/'),
       Partials: path.join(__dirname, './src/pages/_partials/'),
       Utils: path.join(__dirname, './src/utils/'),
+      Mixins: path.join(__dirname, './src/assets/pug/mixins/'),
+      JSON: path.join(__dirname, './src/assets/json'),
     },
   },
   plugins: [
@@ -74,6 +78,10 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/assets/icons/'),
           to: path.resolve(__dirname, 'build/assets/icons/'),
+        },
+        {
+          from: path.resolve(__dirname, 'src/assets/json/'),
+          to: path.resolve(__dirname, 'build/assets/json/'),
         },
       ],
     }),

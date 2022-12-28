@@ -10,12 +10,12 @@ html(lang='ru' class='page')
     block styles
   body(class='page__body')
 
-    if (withHeaderFooter)
+    if (header)
       include Components/common/header/header.pug
 
     block content
 
-    if (withHeaderFooter)
+    if (footer)
       include Components/common/footer/footer.pug
 
     block scripts

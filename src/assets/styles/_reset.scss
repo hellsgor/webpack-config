@@ -34,6 +34,7 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  padding: 0;
 }
 
 /* Обнуление заголовков */
@@ -53,6 +54,7 @@ button,
 textarea,
 select {
   font: inherit;
+  outline: none;
 }
 
 /* Отключение подчеркивания у ссылок*/

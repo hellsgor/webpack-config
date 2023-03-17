@@ -10,11 +10,5 @@ block styles
   link(href=require('./main.scss') rel='stylesheet')
 block content
   main.page__main(class=pageClassName)
-    .hello-block
-      .hello-block__image
-        img(src=require('Img/webpack_logo.png') alt='Webpack Logo')
-      .hello-block__title
-        h1 Hi, Webpack!
-      input.hello-block__input(placeholder='Тестовый инпут')
 block scripts
   script(src=require('./main.js') defer)

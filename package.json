@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "start": "cross-env NODE_ENV=development webpack serve --mode development"
+    "start": "cross-env NODE_ENV=development webpack serve --mode development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [
     "webpack",
@@ -16,7 +18,7 @@
     "javascript"
   ],
   "browserslist": ["ie >= 8, last 4 version, > 1%, not dead"],
-  "author": "igor-st <hellsgor@gmail.com>",
+  "author": "hellsgor <hellsgor@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.20.5",
@@ -28,6 +30,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.29.0",
+    "gh-pages": "^4.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "node-sass": "^7.0.3",
